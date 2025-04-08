@@ -1,0 +1,31 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "static/images"
+public_folder: "/images"
+
+collections:
+  - name: "posts"
+    label: "Статьи"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Заголовок", name: "title", widget: "string"}
+      - {label: "Дата публикации", name: "date", widget: "datetime"}
+      - {label: "Черновик", name: "draft", widget: "boolean", default: false}
+      - {label: "Теги", name: "tags", widget: "list"}
+      - {label: "Содержание", name: "body", widget: "markdown"}
+
+  - name: "pages"
+    label: "Страницы"
+    folder: "content"
+    create: true
+    fields:
+      - {label: "Заголовок", name: "title", widget: "string"}
+      - {label: "Дата публикации", name: "date", widget: "datetime"}
+      - {label: "Черновик", name: "draft", widget: "boolean", default: false}
+      - {label: "Содержание", name: "body", widget: "markdown"} 
