@@ -1,0 +1,33 @@
+---
+label: "Сторінка (UA)"
+hide_body: false
+fields:
+  - type: text
+    name: title
+    label: "Заголовок"
+    description: "Заголовок сторінки"
+    required: true
+  - type: text
+    name: description
+    label: "Опис"
+    description: "Короткий опис сторінки"
+  - type: markdown
+    name: body
+    label: "Зміст"
+    description: "Зміст сторінки"
+    required: true
+    config:
+      required: true
+      buttons:
+        - bold
+        - italic
+        - code
+        - link
+        - heading
+        - quote
+        - bulleted-list
+        - numbered-list
+      plugins:
+        - table
+        - code
+        - image 

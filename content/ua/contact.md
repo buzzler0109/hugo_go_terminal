@@ -11,7 +11,7 @@ draft: false
 
 {{< contact-form 
     formID="contactFormUa"
-    action="https://formspree.io/f/your-form-id"
+    action="https://formspree.io/f/mldberlp"
     nameLabel="Ім'я"
     emailLabel="Email"
     subjectLabel="Тема"
