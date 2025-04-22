@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@types/node": "^22.14.1",
+    "tinacms": "^2.7.5"
+  }
+}
