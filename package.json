@@ -1,6 +1,18 @@
 {
+  "name": "shum-website",
+  "version": "1.0.0",
+  "description": "SHUM website with TinaCMS",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tinacms dev -c \"hugo server -D\"",
+    "build": "hugo",
+    "start": "hugo server -D"
+  },
   "dependencies": {
-    "@types/node": "^22.14.1",
-    "tinacms": "^2.7.5"
+    "@tinacms/cli": "^1.5.0",
+    "tinacms": "^1.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
   }
 }

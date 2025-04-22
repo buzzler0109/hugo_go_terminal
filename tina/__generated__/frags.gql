@@ -1,0 +1,33 @@
+fragment Posts_uaParts on Posts_ua {
+  __typename
+  title
+  date
+  draft
+  description
+  tags
+  body
+}
+
+fragment Posts_enParts on Posts_en {
+  __typename
+  title
+  date
+  draft
+  description
+  tags
+  body
+}
+
+fragment Pages_uaParts on Pages_ua {
+  __typename
+  title
+  description
+  body
+}
+
+fragment Pages_enParts on Pages_en {
+  __typename
+  title
+  description
+  body
+}
