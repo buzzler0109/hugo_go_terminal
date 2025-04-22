@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tinacms dev -c \"hugo server -D\"",
     "build": "hugo",
-    "start": "hugo server -D"
+    "start": "hugo server -D",
+    "deploy": "npm run build && wrangler pages deploy public"
   },
   "dependencies": {
     "@tinacms/cli": "^1.5.0",
@@ -15,4 +16,5 @@
   "devDependencies": {
     "@types/node": "^20.0.0"
   }
+  
 }
