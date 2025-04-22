@@ -1,6 +1,12 @@
 backend:
   name: git-gateway
   branch: main
+  commit_messages:
+    create: 'Створити {{collection}} "{{slug}}"'
+    update: 'Оновити {{collection}} "{{slug}}"'
+    delete: 'Видалити {{collection}} "{{slug}}"'
+    uploadMedia: 'Завантажити "{{path}}"'
+    deleteMedia: 'Видалити "{{path}}"'
 
 local_backend: true
 
@@ -9,23 +15,23 @@ public_folder: "/images"
 
 collections:
   - name: "posts"
-    label: "Статьи"
+    label: "Статті"
     folder: "content/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Заголовок", name: "title", widget: "string"}
-      - {label: "Дата публикации", name: "date", widget: "datetime"}
-      - {label: "Черновик", name: "draft", widget: "boolean", default: false}
+      - {label: "Дата публікації", name: "date", widget: "datetime"}
+      - {label: "Чернетка", name: "draft", widget: "boolean", default: false}
       - {label: "Теги", name: "tags", widget: "list"}
-      - {label: "Содержание", name: "body", widget: "markdown"}
+      - {label: "Зміст", name: "body", widget: "markdown"}
 
   - name: "pages"
-    label: "Страницы"
+    label: "Сторінки"
     folder: "content"
     create: true
     fields:
       - {label: "Заголовок", name: "title", widget: "string"}
-      - {label: "Дата публикации", name: "date", widget: "datetime"}
-      - {label: "Черновик", name: "draft", widget: "boolean", default: false}
-      - {label: "Содержание", name: "body", widget: "markdown"} 
+      - {label: "Дата публікації", name: "date", widget: "datetime"}
+      - {label: "Чернетка", name: "draft", widget: "boolean", default: false}
+      - {label: "Зміст", name: "body", widget: "markdown"} 

@@ -5,8 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+      body {
+        background: #000;
+        color: #fff;
+        font-family: monospace;
+      }
+      #nc-root {
+        --nc-bg-1: #000;
+        --nc-bg-2: #111;
+        --nc-bg-3: #222;
+        --nc-txt-1: #fff;
+        --nc-txt-2: #ccc;
+        --nc-accent-1: #0f0;
+        --nc-accent-2: #0c0;
+      }
+    </style>
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html> 

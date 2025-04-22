@@ -2,7 +2,7 @@
 (function() {
   var width, height, canvas, ctx, particles;
   var particleCount = 100;
-  var particleSpeed = 0.5;
+  var particleSpeed = 0.4;
   var particleBaseSize = 2;
   var particleMaxSize = 6;
   var lineLength = 150;

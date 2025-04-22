@@ -1,0 +1,126 @@
+baseURL = "/"
+languageCode = "ua-en"
+title = "SHUM"
+theme = "terminal"
+pagination.pagerSize = 5
+
+
+[markup.highlight]
+  noClasses = false
+
+[params]
+  showMenuItems = 4
+  showLanguageSelector = true
+  fullWidthTheme = false
+  centerTheme = false
+  autoCover = true
+  showLastUpdated = false
+  contentTypeName = "posts"
+
+
+[languages]
+
+  [languages.ua]
+    languageName = "Ukrainian"
+    title = "SHUM"
+    weight = 1
+    contentDir = "content/ua"
+
+    [languages.ua.params]
+      subtitle = "SHUM"
+      owner = ""
+      keywords = ""
+      copyright = ""
+      menuMore = "Показати більше"
+      readMore = "Читати далі"
+      readOtherPosts = "Читати інші статті"
+      newerPosts = "Новіші статті"
+      olderPosts = "Старіші статті"
+      missingContentMessage = "Сторінку не знайдено..."
+      missingBackButtonLabel = "Повернутися на головну"
+      minuteReadingTime = "хв на читання"
+      words = "слів"
+
+      [languages.ua.params.logo]
+        logoText = "SHUM"
+        logoHomeLink = "/ua"
+
+      [languages.ua.menu]
+        [[languages.ua.menu.main]]
+          identifier = "about"
+          name = "Резюме"
+          url = "/ua/about/"
+          weight = 10
+        [[languages.ua.menu.main]]
+          identifier = "posts"
+          name = "Новини"
+          url = "/ua/posts/"
+          weight = 20
+        [[languages.ua.menu.main]]
+
+          identifier = "contact"
+          name = "Контакти"
+          url = "/ua/contact/"
+          weight = 30
+        [[languages.ua.menu.main]]
+          identifier = "donats"
+          name = "Донати"
+          url = "/ua/donats/"
+          weight = 40
+
+  [languages.en]
+    languageName = "English"
+    title = "SHUM"
+    weight = 2
+    contentDir = "content/en"
+
+    [languages.en.params]
+      subtitle = "SHUM"
+      owner = ""
+      keywords = ""
+      copyright = ""
+      menuMore = "Show more"
+      readMore = "Read more"
+      readOtherPosts = "Read other posts"
+      newerPosts = "Newer posts"
+      olderPosts = "Older posts"
+      missingContentMessage = "Page not found..."
+      missingBackButtonLabel = "Back to home page"
+      minuteReadingTime = "min read"
+      words = "words"
+
+      [languages.en.params.logo]
+        logoText = "SHUM"
+        logoHomeLink = "/en"
+
+      [languages.en.menu]
+        [[languages.en.menu.main]]
+          identifier = "about"
+          name = "About"
+          url = "about/"
+          weight = 10
+        [[languages.en.menu.main]]
+          identifier = "posts"
+          name = "News"
+          url = "posts/"
+          weight = 20
+        [[languages.en.menu.main]]
+          identifier = "contact"
+          name = "Contact"
+          url = "contact/"
+          weight = 30
+        [[languages.en.menu.main]]
+          identifier = "donats"
+          name = "Donations"
+          url = "donats/"
+          weight = 40
+
+
+
+
+
+
+
+
+
+
