@@ -1,4 +1,4 @@
-baseURL = "https://shum-go.buzzler0109.workers.dev/"
+baseURL = "/"
 languageCode = "ua-en"
 title = "SHUM"
 theme = "terminal"
