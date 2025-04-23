@@ -5,13 +5,20 @@
   "main": "index.js",
   "scripts": {
     "dev": "tinacms dev -c \"hugo server -D\"",
+<<<<<<< HEAD
     "build": "hugo",
     "start": "hugo server -D"
   },
   "dependencies": {
+=======
+    "build": "chmod +x build.sh && ./build.sh",
+    "start": "hugo server -D"
+  },
+  "dependencies": {
+    "@types/node": "^20.0.0"
+>>>>>>> e63c93aa02dd991912be2cc5cdf46ff54506bc8c
   },
   "devDependencies": {
     "@types/node": "^20.0.0"
   }
-  
 }
