@@ -4,7 +4,7 @@
   "description": "SHUM website",
   "main": "index.js",
   "scripts": {
-    "build": "hugo -b $CF_PAGES_URL --minify",
+    "build": "hugo",
     "start": "hugo server -D"
   },
   "dependencies": {
