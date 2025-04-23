@@ -8,4 +8,5 @@
   CF_PAGES_URL = "https://shum-go.buzzler0109.workers.dev/"
 
 [context.production.environment]
-  HUGO_ENV = "production" 
+  HUGO_ENV = "production"
+  CF_PAGES_URL = "https://shum-go.buzzler0109.workers.dev/" 
