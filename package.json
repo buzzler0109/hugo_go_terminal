@@ -4,14 +4,10 @@
   "description": "SHUM website",
   "main": "index.js",
   "scripts": {
-    "dev": "tinacms dev -c \"hugo server -D\"",
-    "build": "hugo",
+    "build": "hugo -b $CF_PAGES_URL --minify",
     "start": "hugo server -D"
   },
   "dependencies": {
     "@types/node": "^20.0.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20.0.0"
   }
-}
+} 

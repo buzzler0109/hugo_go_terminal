@@ -5,24 +5,7 @@
 [build.environment]
   HUGO_VERSION = "0.121.1"
   NODE_VERSION = "18"
+  CF_PAGES_URL = "https://shum-go.buzzler0109.workers.dev/"
 
 [context.production.environment]
-  HUGO_ENV = "production"
-
-[context.deploy-preview]
-  command = "hugo --gc --minify --baseURL $DEPLOY_PRIME_URL"
-
-[context.branch-deploy]
-  command = "hugo --gc --minify --baseURL $DEPLOY_PRIME_URL"
-
-[[redirects]]
-  from = "/admin/*"
-  to = "/admin/index.html"
-  status = 200
-
-[[headers]]
-  for = "/admin/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
-    Access-Control-Allow-Headers = "Origin, X-Requested-With, Content-Type, Accept" 
+  HUGO_ENV = "production" 
