@@ -5,8 +5,9 @@
 [build.environment]
   HUGO_VERSION = "0.121.1"
   NODE_VERSION = "18"
-  CF_PAGES_URL = "https://shum-go.buzzler0109.workers.dev/"
+  CF_PAGES_URL = "https://shum-go-terminal.pages.dev/"
 
 [context.production.environment]
   HUGO_ENV = "production"
-  CF_PAGES_URL = "https://shum-go.buzzler0109.workers.dev/" 
+  CF_PAGES_URL = "https://shum-go-terminal.pages.dev/"
+  HUGO_DESTINATION = "public" 
