@@ -1,3 +1,4 @@
+
 // Particle Network Animation
 (function() {
   var width, height, canvas, ctx, particles;
@@ -6,7 +7,7 @@
   var particleBaseSize = 2;
   var particleMaxSize = 6;
   var lineLength = 150;
-  var particleColor = '#fff';
+  var particleColor = '#edd08d';
 
   function init() {
     canvas = document.getElementById('particle-canvas');
