@@ -6,21 +6,6 @@
     <title>Content Manager</title>
   </head>
   <body>
-    <script>
-      // Проверяем если это запрос авторизации
-      const urlParams = new URLSearchParams(window.location.search);
-      const provider = urlParams.get('provider');
-      const siteId = urlParams.get('site_id');
-      const scope = urlParams.get('scope');
-      
-      if (provider === 'github') {
-        window.location.href = `https://github.com/login/oauth/authorize?client_id=${siteId}&scope=${scope}`;
-      } else {
-        // Если не авторизация - загружаем CMS
-        const script = document.createElement('script');
-        script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
-        document.body.appendChild(script);
-      }
-    </script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </body>
 </html>
