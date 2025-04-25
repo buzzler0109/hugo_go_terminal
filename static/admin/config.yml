@@ -1,0 +1,26 @@
+backend:
+  name: github
+  repo: buzzler0109/hugo_go_terminal  # твой репозиторий
+  branch: main
+  base_url: https://hugo-go-terminal.pages.dev  # твой домен
+  auth_scope: repo  # для доступа к репозиторию
+
+local_backend: true  # для локальной разработки
+publish_mode: editorial_workflow  # для контроля публикации
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: 'blog'
+    label: 'Blog'
+    folder: 'content/blog'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
