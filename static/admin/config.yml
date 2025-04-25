@@ -9,15 +9,48 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
+  - name: 'ua_pages'
+    label: 'Українські сторінки'
+    folder: 'content/ua'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    editor:
-      preview: false
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Заголовок', name: 'title', widget: 'string' }
+      - { label: 'Опис', name: 'description', widget: 'string' }
+      - { label: 'Тіло', name: 'body', widget: 'markdown' }
+      - { label: 'Мова', name: 'language', widget: 'select', options: ['ua'] }
+
+  - name: 'en_pages'
+    label: 'English Pages'
+    folder: 'content/en'
+    create: true
+    slug: '{{slug}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Language', name: 'language', widget: 'select', options: ['en'] }
+
+  - name: 'ua_blog'
+    label: 'Український блог'
+    folder: 'content/ua/posts'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - { label: 'Заголовок', name: 'title', widget: 'string' }
+      - { label: 'Дата', name: 'date', widget: 'datetime' }
+      - { label: 'Опис', name: 'description', widget: 'string' }
+      - { label: 'Тіло', name: 'body', widget: 'markdown' }
+      - { label: 'Мова', name: 'language', widget: 'select', options: ['ua'] }
+
+  - name: 'en_blog'
+    label: 'English Blog'
+    folder: 'content/en/posts'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Language', name: 'language', widget: 'select', options: ['en'] }
