@@ -4,6 +4,7 @@ backend:
   branch: main
   base_url: https://hugo-go-terminal.pages.dev  # твой домен
   auth_scope: repo  # для доступа к репозиторию
+  auth_endpoint: /auth  # добавь эту строку
 
 local_backend: true  # для локальной разработки
 publish_mode: editorial_workflow  # для контроля публикации
