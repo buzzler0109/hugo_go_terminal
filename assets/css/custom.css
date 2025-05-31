@@ -22,6 +22,10 @@ body {
     border-right: none;
 }
 
+.index-content {
+    margin: 0;
+}
+
 .terminal {
     background-color: rgba(0, 0, 0, 0.6) !important;
     backdrop-filter: blur(10px);
@@ -29,6 +33,14 @@ body {
     margin: 20px 0;
     padding: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.monobank-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 header {
@@ -70,7 +82,11 @@ nav ul {
     }
     
     nav ul {
-        flex-direction: column;
+        flex-direction: row;
         gap: 10px;
+    }
+
+    .content {
+        z-index: -1;
     }
 }

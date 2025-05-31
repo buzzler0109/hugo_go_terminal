@@ -15,7 +15,7 @@ pagination.pagerSize = 5
   centerTheme = false
   autoCover = true
   showLastUpdated = false
-  contentTypeName = "posts"
+  contentTypeName = "post"
 
 
 [languages]
