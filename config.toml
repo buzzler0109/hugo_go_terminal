@@ -48,8 +48,8 @@ pagination.pagerSize = 5
       [languages.ua.menu]
         [[languages.ua.menu.main]]
           identifier = "about"
-          name = "Резюме"
-          url = "/ua/about/"
+          name = "Про нас"
+          url = "/ua"
           weight = 10
         [[languages.ua.menu.main]]
           identifier = "posts"
