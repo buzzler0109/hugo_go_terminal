@@ -42,6 +42,7 @@ missingBackButtonLabel = "Повернутися на головну"
 subtitle = "SHUM"
 readOtherPosts = "Читати інші статті"
 olderPosts = "Старіші статті"
+showFullContent = true
 
 [languages.ua.params.logo]
 logoText = "SHUM"
