@@ -4,13 +4,14 @@ title = "SHUM"
 baseURL = "/"
 
 [params]
-showMenuItems = 4
+showMenuItems = 6
 showLanguageSelector = true
 fullWidthTheme = false
 centerTheme = false
 autoCover = true
 showLastUpdated = false
 contentTypeName = "post"
+summaryLength = 70
 
 [markup]
 
