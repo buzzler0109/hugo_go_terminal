@@ -8,7 +8,28 @@ backend:
 media_folder: static/img
 public_folder: /img
 
+# Автоматическое создание меню
 collections:
+  - name: 'menu'
+    label: 'Menu'
+    files:
+      - file: 'config.toml'
+        label: 'Menu Configuration'
+        name: 'menu'
+        fields:
+          - {label: 'Ukrainian Menu', name: 'ua_menu', widget: 'list', fields: [
+              {label: 'Identifier', name: 'identifier', widget: 'string'},
+              {label: 'Name', name: 'name', widget: 'string'},
+              {label: 'URL', name: 'url', widget: 'string'},
+              {label: 'Weight', name: 'weight', widget: 'number'}
+            ]}
+          - {label: 'English Menu', name: 'en_menu', widget: 'list', fields: [
+              {label: 'Identifier', name: 'identifier', widget: 'string'},
+              {label: 'Name', name: 'name', widget: 'string'},
+              {label: 'URL', name: 'url', widget: 'string'},
+              {label: 'Weight', name: 'weight', widget: 'number'}
+            ]}
+
   - name: 'ua_pages'
     label: 'Українські сторінки'
     folder: 'content/ua'
