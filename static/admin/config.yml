@@ -17,13 +17,13 @@ collections:
         label: 'Menu Configuration'
         name: 'menu'
         fields:
-          - {label: 'Ukrainian Menu', name: 'ua_menu', widget: 'list', fields: [
+          - {label: 'Ukrainian Menu', name: 'languages.ua.menu.main', widget: 'list', fields: [
               {label: 'Identifier', name: 'identifier', widget: 'string'},
               {label: 'Name', name: 'name', widget: 'string'},
               {label: 'URL', name: 'url', widget: 'string'},
               {label: 'Weight', name: 'weight', widget: 'number'}
             ]}
-          - {label: 'English Menu', name: 'en_menu', widget: 'list', fields: [
+          - {label: 'English Menu', name: 'languages.en.menu.main', widget: 'list', fields: [
               {label: 'Identifier', name: 'identifier', widget: 'string'},
               {label: 'Name', name: 'name', widget: 'string'},
               {label: 'URL', name: 'url', widget: 'string'},
