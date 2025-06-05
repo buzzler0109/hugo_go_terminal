@@ -64,7 +64,7 @@ logoHomeLink = "/ua"
 [[languages.ua.menu.main]]
 identifier = "about"
 name = "Про нас"
-url = "/ua"
+url = "/ua/"
 weight = 10
 
 [[languages.ua.menu.main]]
@@ -84,6 +84,11 @@ identifier = "donats"
 name = "Донати"
 url = "/ua/donats/"
 weight = 40
+
+[[languages.ua.menu.main]]
+identifier = "tools"
+name = "Інструменти"
+url = "/ua/tools"
 
 [languages.en]
 languageName = "English"
