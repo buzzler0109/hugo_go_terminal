@@ -17,6 +17,14 @@ contentTypeName = "post"
 [markup.highlight]
 noClasses = false
 
+["languages.ua.menu"]
+
+[["languages.ua.menu".main]]
+identifier = "tools"
+name = "Інструменти"
+url = "/ua/tools"
+weight = 50
+
 [pagination]
 pagerSize = 5
 
