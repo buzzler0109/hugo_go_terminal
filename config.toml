@@ -2,6 +2,7 @@ languageCode = "ua-en"
 theme = "terminal"
 title = "SHUM"
 baseURL = "/"
+summaryLength = 50
 
 [params]
 showMenuItems = 6
