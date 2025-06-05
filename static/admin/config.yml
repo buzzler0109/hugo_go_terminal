@@ -42,25 +42,25 @@ collections:
     label: 'Українські сторінки'
     folder: 'content/ua'
     create: true
-    slug: '{{menu_item | replace: "ua", "" | replace: "-", "" }}'
+    slug: '{{menu_item}}'
     fields:
       - { label: 'Заголовок', name: 'title', widget: 'string' }
       - { label: 'Опис', name: 'description', widget: 'string' }
       - { label: 'Тіло', name: 'body', widget: 'markdown' }
       - { label: 'Мова', name: 'language', widget: 'select', options: ['ua'] }
-      - { label: 'Пункт меню', name: 'menu_item', widget: 'relation', collection: 'menu', value_field: 'languages.ua.menu.main.*.url', search_fields: ['languages.ua.menu.main.*.name'], display_fields: ['languages.ua.menu.main.*.name'] }
+      - { label: 'Пункт меню', name: 'menu_item', widget: 'relation', collection: 'menu', value_field: 'languages.ua.menu.main.*.identifier', search_fields: ['languages.ua.menu.main.*.name'], display_fields: ['languages.ua.menu.main.*.name'] }
 
   - name: 'en_pages'
     label: 'English Pages'
     folder: 'content/en'
     create: true
-    slug: '{{menu_item | replace: "en", "" | replace: "-", "" }}'
+    slug: '{{menu_item}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Language', name: 'language', widget: 'select', options: ['en'] }
-      - { label: 'Menu Item', name: 'menu_item', widget: 'relation', collection: 'menu', value_field: 'languages.en.menu.main.*.url', search_fields: ['languages.en.menu.main.*.name'], display_fields: ['languages.en.menu.main.*.name'] }
+      - { label: 'Menu Item', name: 'menu_item', widget: 'relation', collection: 'menu', value_field: 'languages.en.menu.main.*.identifier', search_fields: ['languages.en.menu.main.*.name'], display_fields: ['languages.en.menu.main.*.name'] }
 
   - name: 'ua_blog'
     label: 'Український блог'
