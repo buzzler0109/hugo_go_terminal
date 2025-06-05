@@ -42,7 +42,7 @@ collections:
     label: 'Українські сторінки'
     folder: 'content/ua'
     create: true
-    slug: '{{menu_item}}'
+    slug: '{{menu_item | replace: "/ua/", "" | replace: "/", "" }}'
     fields:
       - { label: 'Заголовок', name: 'title', widget: 'string' }
       - { label: 'Опис', name: 'description', widget: 'string' }
@@ -54,7 +54,7 @@ collections:
     label: 'English Pages'
     folder: 'content/en'
     create: true
-    slug: '{{menu_item}}'
+    slug: '{{menu_item | replace: "/en/", "" | replace: "/", "" }}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
