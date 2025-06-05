@@ -11,6 +11,7 @@ centerTheme = false
 autoCover = true
 showLastUpdated = false
 contentTypeName = "post"
+
 [markup]
 
 [markup.highlight]

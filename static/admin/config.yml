@@ -69,7 +69,7 @@ collections:
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
       - { label: 'Заголовок', name: 'title', widget: 'string' }
-      - { label: 'Дата', name: 'date', widget: 'datetime' }
+      - { label: 'Дата', name: 'date', widget: 'date' }
       - { label: 'Тіло', name: 'body', widget: 'markdown' }
       - { label: 'Мова', name: 'language', widget: 'select', options: ['ua'] }
 
@@ -80,6 +80,6 @@ collections:
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Date', name: 'date', widget: 'datetime' }
+      - { label: 'Date', name: 'date', widget: 'date' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Language', name: 'language', widget: 'select', options: ['en'] }
