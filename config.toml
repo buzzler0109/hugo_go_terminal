@@ -11,8 +11,7 @@ centerTheme = false
 autoCover = true
 showLastUpdated = false
 contentTypeName = "post"
-summaryLength = 70
-
+showFullContent = true
 [markup]
 
 [markup.highlight]
