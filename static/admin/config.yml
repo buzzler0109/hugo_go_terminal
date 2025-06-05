@@ -17,15 +17,25 @@ collections:
         label: 'Menu Configuration'
         name: 'menu'
         fields:
-          - {label: 'Ukrainian Menu', name: 'languages.ua.menu.main', widget: 'list', fields: [
-              {label: 'Identifier', name: 'identifier', widget: 'string'},
-              {label: 'Name', name: 'name', widget: 'string'},
-              {label: 'URL', name: 'url', widget: 'string', pattern: ['^/ua/.*', 'Must start with /ua/']}
-            ]}
-          - {label: 'English Menu', name: 'languages.en.menu.main', widget: 'list', fields: [
-              {label: 'Identifier', name: 'identifier', widget: 'string'},
-              {label: 'Name', name: 'name', widget: 'string'},
-              {label: 'URL', name: 'url', widget: 'string'}
+          - {label: 'Languages', name: 'languages', widget: 'object', fields: [
+              {label: 'Ukrainian', name: 'ua', widget: 'object', fields: [
+                {label: 'Menu', name: 'menu', widget: 'object', fields: [
+                  {label: 'Main Menu', name: 'main', widget: 'list', fields: [
+                    {label: 'Identifier', name: 'identifier', widget: 'string'},
+                    {label: 'Name', name: 'name', widget: 'string'},
+                    {label: 'URL', name: 'url', widget: 'string', pattern: ['^/ua/.*', 'Must start with /ua/']}
+                  ]}
+                ]}
+              ]},
+              {label: 'English', name: 'en', widget: 'object', fields: [
+                {label: 'Menu', name: 'menu', widget: 'object', fields: [
+                  {label: 'Main Menu', name: 'main', widget: 'list', fields: [
+                    {label: 'Identifier', name: 'identifier', widget: 'string'},
+                    {label: 'Name', name: 'name', widget: 'string'},
+                    {label: 'URL', name: 'url', widget: 'string'}
+                  ]}
+                ]}
+              ]}
             ]}
 
   - name: 'ua_pages'
