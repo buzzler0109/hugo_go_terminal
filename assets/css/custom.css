@@ -226,6 +226,16 @@ nav ul {
     .container {
         padding: 0 10px;
     }
+
+        
+    nav ul {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .content {
+        z-index: -1;
+    }
     
     .main-block {
         padding: 0 20px;
