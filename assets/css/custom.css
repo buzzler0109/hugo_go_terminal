@@ -151,7 +151,7 @@ body {
     color: #eceae5;
     border-radius: 12px;
     padding: 28px 24px 24px 24px;
-    max-width: 600px;
+    max-width: 600px;   
     margin: 32px auto 24px auto;
     box-shadow: 0 0 24px #000a;
     text-align: center;
@@ -221,18 +221,117 @@ nav ul {
     gap: 20px;
 }
 
-/* Адаптивность для мобильных устройств */
+/* Адаптивность для планшетов и мобильных устройств */
 @media (max-width: 768px) {
     .container {
         padding: 0 10px;
     }
     
-    nav ul {
-        flex-direction: row;
+    .main-block {
+        padding: 0 20px;
+    }
+
+    .directions {
+        flex-direction: column;
+        gap: 20px;
+        margin-left: 2ch;
+    }
+
+    .direction {
+        border-left: none;
+        border-top: 1px solid #eec35e;
+        padding-left: 0;
+        padding-top: 10px;
+    }
+
+    .goal-text {
+        flex-direction: column;
+        padding: 0 20px;
         gap: 10px;
     }
 
-    .content {
-        z-index: -1;
+    .goal-accent {
+        white-space: normal;
+    }
+
+    .principles {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .principle {
+        border-left: none;
+        border-top: 1px solid #eec35e;
+        padding-left: 0;
+        padding-top: 10px;
+    }
+
+    .principles-accent {
+        padding: 0 20px;
+    }
+
+    .donate-widget {
+        margin: 20px 10px;
+        padding: 20px 15px;
+    }
+
+    .donate-title {
+        font-size: 1.4rem;
+    }
+
+    .donate-iban {
+        font-size: 1rem;
+        word-break: break-all;
+    }
+
+    .donate-desc {
+        font-size: 1rem;
+    }
+
+    .donate-final {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-block {
+        padding: 0 10px;
+    }
+
+    .directions {
+        margin-left: 1ch;
+    }
+
+    .goal-text {
+        padding: 0 10px;
+    }
+
+    .principles-accent {
+        padding: 0 10px;
+    }
+
+    .donate-widget {
+        padding: 15px 10px;
+    }
+
+    .donate-title {
+        font-size: 1.2rem;
+    }
+
+    .donate-iban {
+        font-size: 0.9rem;
+    }
+
+    .donate-desc {
+        font-size: 0.9rem;
+    }
+
+    .donate-final {
+        font-size: 0.85rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
     }
 }
