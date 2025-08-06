@@ -1,85 +1,211 @@
 backend:
   name: github
-  repo: buzzler0109/hugo_go_terminal  # твой репозиторий
+  repo: buzzler0109/hugo_go_terminal # твой репозиторий
   branch: main
-  base_url: https://hugo-go-terminal.pages.dev  # твой домен
-  auth_endpoint: /api/auth  # добавь эту строку
+  base_url: https://hugo-go-terminal.pages.dev # твой домен
+  auth_endpoint: /api/auth # добавь эту строку
 
 media_folder: static/img
 public_folder: /img
 
 # Автоматическое создание меню
 collections:
-  - name: 'menu'
-    label: 'Menu'
+  - name: "menu"
+    label: "Menu"
     files:
-      - file: 'config.toml'
-        label: 'Menu Configuration'
-        name: 'menu'
+      - file: "config.toml"
+        label: "Menu Configuration"
+        name: "menu"
         fields:
-          - {label: 'Languages', name: 'languages', widget: 'object', fields: [
-              {label: 'Ukrainian', name: 'ua', widget: 'object', fields: [
-                {label: 'Menu', name: 'menu', widget: 'object', fields: [
-                  {label: 'Main Menu', name: 'main', widget: 'list', fields: [
-                    {label: 'Identifier', name: 'identifier', widget: 'string'},
-                    {label: 'Name', name: 'name', widget: 'string'},
-                    {label: 'URL', name: 'url', widget: 'string', pattern: ['^/ua/.*', 'Must start with /ua/']}
-                  ]}
-                ]}
-              ]},
-              {label: 'English', name: 'en', widget: 'object', fields: [
-                {label: 'Menu', name: 'menu', widget: 'object', fields: [
-                  {label: 'Main Menu', name: 'main', widget: 'list', fields: [
-                    {label: 'Identifier', name: 'identifier', widget: 'string'},
-                    {label: 'Name', name: 'name', widget: 'string'},
-                    {label: 'URL', name: 'url', widget: 'string'}
-                  ]}
-                ]}
-              ]}
-            ]}
+          - {
+              label: "Languages",
+              name: "languages",
+              widget: "object",
+              fields:
+                [
+                  {
+                    label: "Ukrainian",
+                    name: "ua",
+                    widget: "object",
+                    fields:
+                      [
+                        {
+                          label: "Menu",
+                          name: "menu",
+                          widget: "object",
+                          fields:
+                            [
+                              {
+                                label: "Main Menu",
+                                name: "main",
+                                widget: "list",
+                                fields:
+                                  [
+                                    {
+                                      label: "Identifier",
+                                      name: "identifier",
+                                      widget: "string",
+                                    },
+                                    {
+                                      label: "Name",
+                                      name: "name",
+                                      widget: "string",
+                                    },
+                                    {
+                                      label: "URL",
+                                      name: "url",
+                                      widget: "string",
+                                      pattern:
+                                        ["^/ua/.*", "Must start with /ua/"],
+                                    },
+                                  ],
+                              },
+                            ],
+                        },
+                      ],
+                  },
+                  {
+                    label: "English",
+                    name: "en",
+                    widget: "object",
+                    fields:
+                      [
+                        {
+                          label: "Menu",
+                          name: "menu",
+                          widget: "object",
+                          fields:
+                            [
+                              {
+                                label: "Main Menu",
+                                name: "main",
+                                widget: "list",
+                                fields:
+                                  [
+                                    {
+                                      label: "Identifier",
+                                      name: "identifier",
+                                      widget: "string",
+                                    },
+                                    {
+                                      label: "Name",
+                                      name: "name",
+                                      widget: "string",
+                                    },
+                                    {
+                                      label: "URL",
+                                      name: "url",
+                                      widget: "string",
+                                    },
+                                  ],
+                              },
+                            ],
+                        },
+                      ],
+                  },
+                ],
+            }
 
-  - name: 'ua_pages'
-    label: 'Українські сторінки'
-    folder: 'content/ua'
+  - name: "ua_pages"
+    label: "Українські сторінки"
+    folder: "content/ua"
     create: true
-    slug: '{{menu_item}}'
+    slug: "{{menu_item}}"
     fields:
-      - { label: 'Заголовок', name: 'title', widget: 'string' }
-      - { label: 'Опис', name: 'description', widget: 'string' }
-      - { label: 'Тіло', name: 'body', widget: 'markdown' }
-      - { label: 'Мова', name: 'language', widget: 'select', options: ['ua'] }
-      - { label: 'Пункт меню', name: 'menu_item', widget: 'relation', collection: 'menu', value_field: 'languages.ua.menu.main.*.identifier', search_fields: ['languages.ua.menu.main.*.name'], display_fields: ['languages.ua.menu.main.*.name'] }
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Опис", name: "description", widget: "string" }
+      - { label: "Тіло", name: "body", widget: "markdown" }
+      - { label: "Мова", name: "language", widget: "select", options: ["ua"] }
+      - {
+          label: "Пункт меню",
+          name: "menu_item",
+          widget: "relation",
+          collection: "menu",
+          value_field: "languages.ua.menu.main.*.identifier",
+          search_fields: ["languages.ua.menu.main.*.name"],
+          display_fields: ["languages.ua.menu.main.*.name"],
+        }
 
-  - name: 'en_pages'
-    label: 'English Pages'
-    folder: 'content/en'
+  - name: "en_pages"
+    label: "English Pages"
+    folder: "content/en"
     create: true
-    slug: '{{menu_item}}'
+    slug: "{{menu_item}}"
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'Language', name: 'language', widget: 'select', options: ['en'] }
-      - { label: 'Menu Item', name: 'menu_item', widget: 'relation', collection: 'menu', value_field: 'languages.en.menu.main.*.identifier', search_fields: ['languages.en.menu.main.*.name'], display_fields: ['languages.en.menu.main.*.name'] }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Language",
+          name: "language",
+          widget: "select",
+          options: ["en"],
+        }
+      - {
+          label: "Menu Item",
+          name: "menu_item",
+          widget: "relation",
+          collection: "menu",
+          value_field: "languages.en.menu.main.*.identifier",
+          search_fields: ["languages.en.menu.main.*.name"],
+          display_fields: ["languages.en.menu.main.*.name"],
+        }
 
-  - name: 'ua_blog'
-    label: 'Український блог'
-    folder: 'content/ua/posts'
+  - name: "ua_blog"
+    label: "Український блог"
+    folder: "content/ua/posts"
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: 'Заголовок', name: 'title', widget: 'string' }
-      - { label: 'Дата', name: 'date', widget: 'datetime', default: "{{now}}", date_format: "YYYY-MM-DD", time_format: false }
-      - { label: 'Тіло', name: 'body', widget: 'markdown' }
-      - { label: 'Мова', name: 'language', widget: 'select', options: ['ua'] }
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - {
+          label: "Дата",
+          name: "date",
+          widget: "datetime",
+          default: "{{now}}",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+        }
+      - { label: "Тіло", name: "body", widget: "markdown" }
+      - { label: "Мова", name: "language", widget: "select", options: ["ua"] }
 
-  - name: 'en_blog'
-    label: 'English Blog'
-    folder: 'content/en/posts'
+  - name: "private_ua_blog"
+    label: "Приватний блог"
+    folder: "content/ua/private"
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Date', name: 'date', widget: 'datetime', default: "{{now}}", date_format: "YYYY-MM-DD", time_format: false }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'Language', name: 'language', widget: 'select', options: ['en'] }
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - {
+          label: "Дата",
+          name: "date",
+          widget: "datetime",
+          default: "{{now}}",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+        }
+      - { label: "Тіло", name: "body", widget: "markdown" }
+      - { label: "Мова", name: "language", widget: "select", options: ["ua"] }
+
+  - name: "en_blog"
+    label: "English Blog"
+    folder: "content/en/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          default: "{{now}}",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+        }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Language",
+          name: "language",
+          widget: "select",
+          options: ["en"],
+        }

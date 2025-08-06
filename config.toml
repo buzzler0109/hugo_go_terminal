@@ -10,8 +10,9 @@ showLanguageSelector = true
 fullWidthTheme = false
 centerTheme = false
 autoCover = true
-showLastUpdated = false
-contentTypeName = "post"
+  showLastUpdated = false
+  contentTypeName = "post"
+  privatePassword = "shum2024"  # Пароль для приватного раздела
 
 [markup]
 
@@ -78,6 +79,13 @@ weight = 40
 identifier = "tools"
 name = "Інструменти"
 url = "/ua/tools"
+weight = 50
+
+[[languages.ua.menu.main]]
+identifier = "private"
+name = "Приватний розділ"
+url = "/ua/private/"
+weight = 60
 
 [languages.en]
 languageName = "English"
