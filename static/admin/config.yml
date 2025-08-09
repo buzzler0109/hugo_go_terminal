@@ -215,7 +215,13 @@ collections:
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Path to PDF", name: "path", widget: "string" }
-              - { label: "PDF", name: "pdf", widget: "file", media_folder: "static/pdf", public_folder: "/pdf", pattern: [".*\.pdf$", "Только PDF"] }
+              - {
+                  label: "PDF",
+                  name: "pdf",
+                  widget: "file",
+                  media_folder: "static/pdf",
+                  public_folder: "/pdf",
+                }
 
       - file: "content/en/materials.md"
         label: "EN Materials"
@@ -242,7 +248,13 @@ collections:
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Path to PDF", name: "path", widget: "string" }
-              - { label: "PDF", name: "pdf", widget: "file", media_folder: "static/pdf", public_folder: "/pdf", pattern: [".*\.pdf$", "Только PDF"] }
+              - {
+                  label: "PDF",
+                  name: "pdf",
+                  widget: "file",
+                  media_folder: "static/pdf",
+                  public_folder: "/pdf",
+                }
 
   - name: "en_blog"
     label: "English Blog"
