@@ -81,6 +81,13 @@ name = "Інструменти"
 url = "/ua/tools"
 weight = 50
 
+# Добавлен новый пункт меню Матеріали
+[[languages.ua.menu.main]]
+identifier = "materials"
+name = "Матеріали"
+url = "/ua/materials/"
+weight = 55
+
 [[languages.ua.menu.main]]
 identifier = "private"
 name = "Приватний розділ"
@@ -143,3 +150,10 @@ identifier = "tools"
 name = "Tools"
 url = "/tools/"
 weight = 50
+
+# Добавлен новый пункт меню Materials
+[[languages.en.menu.main]]
+identifier = "materials"
+name = "Materials"
+url = "/materials/"
+weight = 55

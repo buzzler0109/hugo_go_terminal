@@ -1,0 +1,151 @@
+<div id="materials-modal" class="password-modal">
+  <div class="password-modal-content">
+    <div class="password-modal-header">
+      <h3 id="materials-modal-title">Матеріали</h3>
+      <button class="password-modal-close" onclick="closeMaterialsModal()">&times;</button>
+    </div>
+    <div class="password-modal-body">
+      <div class="pdf-controls-top">
+        <button id="materials-prev-top" class="main-btn" disabled>←</button>
+        <span id="materials-page-info-top">Сторінка <span id="materials-current-top">1</span> з <span id="materials-total-top">1</span></span>
+        <button id="materials-next-top" class="main-btn">→</button>
+      </div>
+      <div class="pdf-viewer-container">
+        <canvas id="materials-canvas"></canvas>
+      </div>
+      <div class="pdf-controls-bottom">
+        <button id="materials-prev-bottom" class="main-btn" disabled>←</button>
+        <span id="materials-page-info-bottom">Сторінка <span id="materials-current-bottom">1</span> з <span id="materials-total-bottom">1</span></span>
+        <button id="materials-next-bottom" class="main-btn">→</button>
+      </div>
+      <div class="pdf-loading" id="materials-loading" style="display:none;">
+        <div class="loading-spinner"></div>
+        <p>Завантаження документа...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+  let materialsPdfDoc = null;
+  let materialsPageNum = 1;
+  let materialsRendering = false;
+  let materialsPagePending = null;
+  let materialsScale = 1.5;
+  const materialsCanvas = document.getElementById('materials-canvas');
+  const materialsCtx = materialsCanvas.getContext('2d');
+
+  const prevTop = document.getElementById('materials-prev-top');
+  const nextTop = document.getElementById('materials-next-top');
+  const currTop = document.getElementById('materials-current-top');
+  const totalTop = document.getElementById('materials-total-top');
+
+  const prevBottom = document.getElementById('materials-prev-bottom');
+  const nextBottom = document.getElementById('materials-next-bottom');
+  const currBottom = document.getElementById('materials-current-bottom');
+  const totalBottom = document.getElementById('materials-total-bottom');
+
+  const loadingDiv = document.getElementById('materials-loading');
+  const modal = document.getElementById('materials-modal');
+  const titleEl = document.getElementById('materials-modal-title');
+
+  function computeScaleForContainer(page) {
+    const container = document.querySelector('#materials-modal .pdf-viewer-container');
+    const availableWidth = container ? container.clientWidth : window.innerWidth * 0.9;
+    const unscaled = page.getViewport({ scale: 1 });
+    const scale = Math.max(0.8, Math.min(availableWidth / unscaled.width, 2));
+    return scale;
+  }
+
+  function renderMaterialsPage(num) {
+    materialsRendering = true;
+    materialsPdfDoc.getPage(num).then(function(page) {
+      materialsScale = computeScaleForContainer(page);
+      const viewport = page.getViewport({ scale: materialsScale });
+      materialsCanvas.height = viewport.height;
+      materialsCanvas.width = viewport.width;
+      const renderContext = { canvasContext: materialsCtx, viewport };
+      const renderTask = page.render(renderContext);
+      renderTask.promise.then(function() {
+        materialsRendering = false;
+        if (materialsPagePending !== null) {
+          renderMaterialsPage(materialsPagePending);
+          materialsPagePending = null;
+        }
+      });
+    });
+    currTop.textContent = num;
+    currBottom.textContent = num;
+    updateMaterialsButtons();
+  }
+
+  function queueRenderMaterials(num) {
+    if (materialsRendering) {
+      materialsPagePending = num;
+    } else {
+      renderMaterialsPage(num);
+    }
+  }
+
+  function updateMaterialsButtons() {
+    const isFirst = materialsPageNum <= 1;
+    const isLast = materialsPageNum >= (materialsPdfDoc ? materialsPdfDoc.numPages : 1);
+    prevTop.disabled = isFirst; nextTop.disabled = isLast;
+    prevBottom.disabled = isFirst; nextBottom.disabled = isLast;
+  }
+
+  function onMaterialsPrev() {
+    if (materialsPageNum <= 1) return;
+    materialsPageNum--;
+    queueRenderMaterials(materialsPageNum);
+  }
+
+  function onMaterialsNext() {
+    if (!materialsPdfDoc || materialsPageNum >= materialsPdfDoc.numPages) return;
+    materialsPageNum++;
+    queueRenderMaterials(materialsPageNum);
+  }
+
+  prevTop.addEventListener('click', onMaterialsPrev);
+  nextTop.addEventListener('click', onMaterialsNext);
+  prevBottom.addEventListener('click', onMaterialsPrev);
+  nextBottom.addEventListener('click', onMaterialsNext);
+
+  function openMaterialsModal(pdfPath, title) {
+    titleEl.textContent = title || 'Матеріали';
+    loadingDiv.style.display = 'block';
+    materialsCanvas.width = 0; materialsCanvas.height = 0;
+    materialsPageNum = 1;
+    materialsPdfDoc = null;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+
+    pdfjsLib.getDocument(pdfPath).promise.then(function(pdf) {
+      materialsPdfDoc = pdf;
+      totalTop.textContent = pdf.numPages;
+      totalBottom.textContent = pdf.numPages;
+      renderMaterialsPage(materialsPageNum);
+      loadingDiv.style.display = 'none';
+    }).catch(function(err) {
+      console.error('PDF load error:', err);
+      loadingDiv.innerHTML = '<p>Помилка завантаження документа</p>';
+    });
+  }
+
+  function closeMaterialsModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  window.addEventListener('resize', function() {
+    if (modal.style.display === 'flex' && materialsPdfDoc) {
+      queueRenderMaterials(materialsPageNum);
+    }
+  });
+
+  window.openMaterialsModal = openMaterialsModal;
+  window.closeMaterialsModal = closeMaterialsModal;
+</script> 

@@ -187,6 +187,24 @@ collections:
       - { label: "Тіло", name: "body", widget: "markdown" }
       - { label: "Мова", name: "language", widget: "select", options: ["ua"] }
 
+  - name: "ua_materials"
+    label: "Українські матеріали"
+    folder: "content/ua/materials"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - {
+          label: "Дата",
+          name: "date",
+          widget: "datetime",
+          default: "{{now}}",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+        }
+      - { label: "Тіло", name: "body", widget: "markdown" }
+      - { label: "Мова", name: "language", widget: "select", options: ["ua"] }
+
   - name: "en_blog"
     label: "English Blog"
     folder: "content/en/posts"
@@ -209,3 +227,21 @@ collections:
           widget: "select",
           options: ["en"],
         }
+
+  - name: "en_materials"
+    label: "English Materials"
+    folder: "content/en/materials"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - {
+          label: "Дата",
+          name: "date",
+          widget: "datetime",
+          default: "{{now}}",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+        }
+      - { label: "Тіло", name: "body", widget: "markdown" }
+      - { label: "Мова", name: "language", widget: "select", options: ["ua"] }

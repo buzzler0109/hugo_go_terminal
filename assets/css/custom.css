@@ -673,3 +673,38 @@ nav ul {
         padding: 8px;
     }
 }
+
+/* Materials modal overrides */
+#materials-modal {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+#materials-modal .password-modal-content {
+  width: 95vw;
+  max-width: 1100px;
+  margin: 0;
+}
+#materials-modal .password-modal-body {
+  max-height: 85vh;
+  overflow: auto;
+}
+#materials-modal .pdf-viewer-container {
+  display: flex;
+  justify-content: center;
+}
+#materials-modal #materials-canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+@media (max-width: 768px) {
+  #materials-modal .password-modal-content {
+    width: 98vw;
+    max-width: none;
+  }
+  #materials-modal .password-modal-body {
+    max-height: 80vh;
+  }
+}
