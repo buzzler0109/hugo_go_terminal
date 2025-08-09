@@ -187,23 +187,60 @@ collections:
   #     - { label: "Тіло", name: "body", widget: "markdown" }
   #     - { label: "Мова", name: "language", widget: "select", options: ["ua"] }
 
-  # - name: "ua_materials"
-  #   label: "Українські матеріали"
-  #   folder: "content/ua/materials"
-  #   create: true
-  #   slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-  #   fields:
-  #     - { label: "Заголовок", name: "title", widget: "string" }
-  #     - {
-  #         label: "Дата",
-  #         name: "date",
-  #         widget: "datetime",
-  #         default: "{{now}}",
-  #         date_format: "YYYY-MM-DD",
-  #         time_format: false,
-  #       }
-  #     - { label: "Тіло", name: "body", widget: "markdown" }
-  #     - { label: "Мова", name: "language", widget: "select", options: ["ua"] }
+  - name: "materials_config"
+    label: "Materials"
+    files:
+      - file: "content/ua/materials/_index.md"
+        label: "UA Materials"
+        name: "ua_materials"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - {
+              label: "Date",
+              name: "date",
+              widget: "datetime",
+              default: "{{now}}",
+              date_format: "YYYY-MM-DD",
+              time_format: false,
+            }
+          - {
+              label: "Language",
+              name: "language",
+              widget: "select",
+              options: ["ua"],
+            }
+          - label: "Items"
+            name: "materials"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Path to PDF", name: "path", widget: "string" }
+
+      - file: "content/en/materials/_index.md"
+        label: "EN Materials"
+        name: "en_materials"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - {
+              label: "Date",
+              name: "date",
+              widget: "datetime",
+              default: "{{now}}",
+              date_format: "YYYY-MM-DD",
+              time_format: false,
+            }
+          - {
+              label: "Language",
+              name: "language",
+              widget: "select",
+              options: ["en"],
+            }
+          - label: "Items"
+            name: "materials"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Path to PDF", name: "path", widget: "string" }
 
   - name: "en_blog"
     label: "English Blog"
