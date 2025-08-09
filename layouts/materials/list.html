@@ -1,5 +1,12 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
+
+  {{ if .Content }}
+    <div class="materials-intro">
+      {{ .Content }}
+    </div>
+  {{ end }}
+
   {{ $materials := .Params.materials }}
   {{ if $materials }}
     <ul class="materials-list">

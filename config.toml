@@ -88,12 +88,6 @@ name = "Матеріали"
 url = "/ua/materials/"
 weight = 55
 
-[[languages.ua.menu.main]]
-identifier = "private"
-name = "Приватний розділ"
-url = "/ua/private/"
-weight = 60
-
 [languages.en]
 languageName = "English"
 title = "SHUM"

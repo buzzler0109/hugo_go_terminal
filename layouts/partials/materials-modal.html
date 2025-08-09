@@ -146,6 +146,20 @@
     }
   });
 
+  // Делегирование кликов по ссылкам в Markdown-списках материалов
+    document.addEventListener('click', function (e) {
+      const a = e.target.closest('a[href]');
+      if (!a) return;
+      // только в контенте страницы
+      if (!a.closest('.content')) return;
+      // только на страницах материалов
+      if (!/\/(en\/)?materials\//.test(location.pathname)) return;
+      const href = a.getAttribute('href') || '';
+      if (!/\.pdf(\?|#|$)/i.test(href)) return;
+      e.preventDefault();
+      const title = (a.getAttribute('data-title') || a.textContent || 'Document').trim();
+      window.openMaterialsModal(href, title);
+    }, false);
   window.openMaterialsModal = openMaterialsModal;
   window.closeMaterialsModal = closeMaterialsModal;
 </script> 
