@@ -245,10 +245,9 @@ collections:
   #     - { label: "Тіло", name: "body", widget: "markdown" }
   #     - { label: "Мова", name: "language", widget: "select", options: ["ua"] }
 
-  - name: "pdf"
-    label: "PDF"
+  - label: "PDF"
     name: "path"
     widget: "file"
-    media_folder: "static/pdf"   # куда загрузится файл в репо
-    public_folder: "/pdf"        # как он будет доступен на сайте
-    pattern: ['.*\.pdf$', 'Только PDF']
+    media_folder: "static/pdf" # куда загрузится файл в репо
+    public_folder: "/pdf" # как он будет доступен на сайте
+    pattern: ['.*\.pdf$', "Только PDF"]
