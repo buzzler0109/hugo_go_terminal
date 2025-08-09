@@ -190,7 +190,7 @@ collections:
   - name: "materials_config"
     label: "Materials"
     files:
-      - file: "content/ua/materials/_index.md"
+      - file: "content/ua/materials.md"
         label: "UA Materials"
         name: "ua_materials"
         fields:
@@ -215,8 +215,9 @@ collections:
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Path to PDF", name: "path", widget: "string" }
+              - { label: "PDF", name: "pdf", widget: "file", media_folder: "static/pdf", public_folder: "/pdf", pattern: [".*\.pdf$", "Только PDF"] }
 
-      - file: "content/en/materials/_index.md"
+      - file: "content/en/materials.md"
         label: "EN Materials"
         name: "en_materials"
         fields:
@@ -241,6 +242,7 @@ collections:
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Path to PDF", name: "path", widget: "string" }
+              - { label: "PDF", name: "pdf", widget: "file", media_folder: "static/pdf", public_folder: "/pdf", pattern: [".*\.pdf$", "Только PDF"] }
 
   - name: "en_blog"
     label: "English Blog"
@@ -282,9 +284,9 @@ collections:
   #     - { label: "Тіло", name: "body", widget: "markdown" }
   #     - { label: "Мова", name: "language", widget: "select", options: ["ua"] }
 
-  - label: "PDF"
-    name: "path"
-    widget: "file"
-    media_folder: "static/pdf" # куда загрузится файл в репо
-    public_folder: "/pdf" # как он будет доступен на сайте
-    pattern: ['.*\.pdf$', "Только PDF"]
+  # - label: "PDF"
+  #   name: "path"
+  #   widget: "file"
+  #   media_folder: "static/pdf" # куда загрузится файл в репо
+  #   public_folder: "/pdf" # как он будет доступен на сайте
+  #   pattern: ['.*\.pdf$', "Только PDF"]
