@@ -1,14 +1,14 @@
 ---
 title: Матеріали
-date: 2025-08-09
+date: 2025-08-06
 language: ua
 pdf: /pdf/pamyatka.pdf
 ---
 
 
 
-- [Пам'ятка](/pdf/pamyatka.pdf) 
-- [Ще документ](/pdf/pdf24_converted.pdf)
-- [Щось інше](/pdf/pdf24_converted-1-.pdf)
+- [Пам'ятка щодо зниклих безвісти за особливих обставин](/pdf/pamyatka.pdf) 
+- [Дорожня карта дій родин та інформація для визволених з полону](/pdf/pdf24_converted.pdf)
+- [Зведена презентація щодо порядку дій у разі зникнення особи безвісти ](/pdf/pdf24_converted-1-.pdf)
 
 
