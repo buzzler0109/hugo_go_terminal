@@ -190,7 +190,10 @@ collections:
   - name: "materials_config"
     label: "Materials"
     files:
-      - file: "content/ua/materials.md"
+      - file: "content/ua/materials/materials.md"
+        folder: "content/ua/materials"
+        create: true
+        slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
         label: "UA Materials"
         name: "ua_materials"
         fields:
@@ -203,27 +206,25 @@ collections:
               date_format: "YYYY-MM-DD",
               time_format: false,
             }
+          - { label: "Body", name: "body", widget: "markdown" }
           - {
               label: "Language",
               name: "language",
               widget: "select",
               options: ["ua"],
             }
-          - label: "Items"
-            name: "materials"
-            widget: "list"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Path to PDF", name: "path", widget: "string" }
-              - {
-                  label: "PDF",
-                  name: "pdf",
-                  widget: "file",
-                  media_folder: "static/pdf",
-                  public_folder: "/pdf",
-                }
+          - {
+              label: "PDF",
+              name: "pdf",
+              widget: "file",
+              media_folder: "static/pdf",
+              public_folder: "/pdf",
+            }
 
-      - file: "content/en/materials.md"
+      - file: "content/en/materials/materials.md"
+        folder: "content/en/materials"
+        create: true
+        slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
         label: "EN Materials"
         name: "en_materials"
         fields:
@@ -242,19 +243,13 @@ collections:
               widget: "select",
               options: ["en"],
             }
-          - label: "Items"
-            name: "materials"
-            widget: "list"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Path to PDF", name: "path", widget: "string" }
-              - {
-                  label: "PDF",
-                  name: "pdf",
-                  widget: "file",
-                  media_folder: "static/pdf",
-                  public_folder: "/pdf",
-                }
+          - {
+              label: "PDF",
+              name: "pdf",
+              widget: "file",
+              media_folder: "static/pdf",
+              public_folder: "/pdf",
+            }
 
   - name: "en_blog"
     label: "English Blog"
