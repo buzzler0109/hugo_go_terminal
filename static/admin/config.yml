@@ -217,7 +217,7 @@ collections:
               label: "PDF",
               name: "pdf",
               widget: "file",
-              media_folder: "static/pdf",
+              media_folder: "../../../static/pdf",
               public_folder: "/pdf",
             }
 
@@ -247,7 +247,7 @@ collections:
               label: "PDF",
               name: "pdf",
               widget: "file",
-              media_folder: "static/pdf",
+              media_folder: "../../../static/pdf",
               public_folder: "/pdf",
             }
 
