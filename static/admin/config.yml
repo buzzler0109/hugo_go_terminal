@@ -243,6 +243,7 @@ collections:
               widget: "select",
               options: ["en"],
             }
+          - { label: "Body", name: "body", widget: "markdown" }
           - {
               label: "PDF",
               name: "pdf",
