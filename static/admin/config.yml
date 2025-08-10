@@ -190,7 +190,7 @@ collections:
   - name: "materials_config"
     label: "Materials"
     files:
-      - file: "content/ua/materials/materials.md"
+      - file: "content/ua/materials/_index.md"
         folder: "content/ua/materials"
         create: true
         slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -221,7 +221,7 @@ collections:
               public_folder: "/pdf",
             }
 
-      - file: "content/en/materials/materials.md"
+      - file: "content/en/materials/_index.md"
         folder: "content/en/materials"
         create: true
         slug: "{{year}}-{{month}}-{{day}}-{{slug}}"

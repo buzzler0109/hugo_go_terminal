@@ -7,16 +7,5 @@
     </div>
   {{ end }}
 
-  {{ $materials := .Params.materials }}
-  {{ if $materials }}
-    <ul class="materials-list">
-      {{ range $materials }}
-        <li>
-          <a href="#" onclick="openMaterialsModal('{{ .path }}', '{{ .title }}'); return false;">{{ .title }}</a>
-        </li>
-      {{ end }}
-    </ul>
-  {{ else }}
-    <p>Матеріали поки що відсутні.</p>
-  {{ end }}
+
 {{ end }} 
