@@ -2,7 +2,7 @@
 title: Матеріали
 date: 2025-08-08
 language: ua
-pdf: /pdf/pamyatka.pdf
+pdf: /pdf/pow_mia_shum.pdf
 ---
 
 
