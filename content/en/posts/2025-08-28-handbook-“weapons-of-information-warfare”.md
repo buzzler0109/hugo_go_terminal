@@ -13,4 +13,4 @@ The handbook is designed as a practical tool for civil servants, journalists, ed
 
 [https://cpd.gov.ua/en/manuals/manual-on-countering-disinformation/](https://cpd.gov.ua/en/manuals/manual-on-countering-disinformation/?utm_source=chatgpt.com)
 
-📎 Presentation in material section: <https://shum-ng.org/materials/>
+📎 Presentation in the material section: <https://shum-ng.org/materials/>
