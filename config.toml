@@ -109,7 +109,7 @@ missingBackButtonLabel = "Back to home page"
 subtitle = "SHUM"
 readOtherPosts = "Read other posts"
 olderPosts = "Older posts"
-dateFormat = "Jan 2, 2006"
+dateFormat = "02.01.2006"
 
 [languages.en.params.logo]
 logoText = "SHUM"
