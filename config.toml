@@ -73,8 +73,10 @@ weight = 30
 [[languages.ua.menu.main]]
 identifier = "donats"
 name = "Донати"
-url = "/ua/donats/"
+url = "https://donate.shum-ng.org/"
 weight = 40
+[languages.ua.menu.main.params]
+NewTab = true
 
 [[languages.ua.menu.main]]
 identifier = "tools"
@@ -138,8 +140,10 @@ weight = 30
 [[languages.en.menu.main]]
 identifier = "donats"
 name = "Donations"
-url = "/donats/"
+url = "https://donate.shum-ng.org/"
 weight = 40
+[languages.en.menu.main.params]
+NewTab = true
 
 [[languages.en.menu.main]]
 identifier = "tools"
