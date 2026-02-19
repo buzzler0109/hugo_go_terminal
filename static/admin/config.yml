@@ -252,6 +252,65 @@ collections:
               public_folder: "/pdf",
             }
 
+  - name: "publications_config"
+    label: "Publications"
+    files:
+      - file: "content/ua/publications/_index.md"
+        label: "UA Publications"
+        name: "ua_publications"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - {
+              label: "Date",
+              name: "date",
+              widget: "datetime",
+              default: "{{now}}",
+              date_format: "YYYY-MM-DD",
+              time_format: false,
+            }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - {
+              label: "Language",
+              name: "language",
+              widget: "select",
+              options: ["ua"],
+            }
+          - {
+              label: "PDF",
+              name: "pdf",
+              widget: "file",
+              media_folder: "../../../static/pdf",
+              public_folder: "/pdf",
+            }
+
+      - file: "content/en/publications/_index.md"
+        label: "EN Publications"
+        name: "en_publications"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - {
+              label: "Date",
+              name: "date",
+              widget: "datetime",
+              default: "{{now}}",
+              date_format: "YYYY-MM-DD",
+              time_format: false,
+            }
+          - {
+              label: "Language",
+              name: "language",
+              widget: "select",
+              options: ["en"],
+            }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - {
+              label: "PDF",
+              name: "pdf",
+              widget: "file",
+              media_folder: "../../../static/pdf",
+              public_folder: "/pdf",
+            }
+
   - name: "en_blog"
     label: "English Blog"
     folder: "content/en/posts"

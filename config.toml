@@ -5,7 +5,7 @@ baseURL = "/"
 summaryLength = 50
 
 [params]
-showMenuItems = 6
+showMenuItems = 7
 showLanguageSelector = true
 fullWidthTheme = false
 centerTheme = false
@@ -91,6 +91,12 @@ name = "Матеріали"
 url = "/ua/materials/"
 weight = 55
 
+[[languages.ua.menu.main]]
+identifier = "publications"
+name = "Публікації"
+url = "/ua/publications/"
+weight = 57
+
 [languages.en]
 languageName = "English"
 title = "SHUM"
@@ -157,3 +163,9 @@ identifier = "materials"
 name = "Materials"
 url = "/materials/"
 weight = 55
+
+[[languages.en.menu.main]]
+identifier = "publications"
+name = "Publications"
+url = "/publications/"
+weight = 57

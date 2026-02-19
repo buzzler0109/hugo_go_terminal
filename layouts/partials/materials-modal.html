@@ -7,7 +7,8 @@
     <div class="password-modal-body">
       <div class="pdf-controls-top">
         <button id="materials-prev-top" class="main-btn" disabled>←</button>
-        <span id="materials-page-info-top">Сторінка <span id="materials-current-top">1</span> з <span id="materials-total-top">1</span></span>
+        <span id="materials-page-info-top">Сторінка <span id="materials-current-top">1</span> з <span
+            id="materials-total-top">1</span></span>
         <button id="materials-next-top" class="main-btn">→</button>
       </div>
       <div class="pdf-viewer-container">
@@ -15,7 +16,8 @@
       </div>
       <div class="pdf-controls-bottom">
         <button id="materials-prev-bottom" class="main-btn" disabled>←</button>
-        <span id="materials-page-info-bottom">Сторінка <span id="materials-current-bottom">1</span> з <span id="materials-total-bottom">1</span></span>
+        <span id="materials-page-info-bottom">Сторінка <span id="materials-current-bottom">1</span> з <span
+            id="materials-total-bottom">1</span></span>
         <button id="materials-next-bottom" class="main-btn">→</button>
       </div>
       <div class="pdf-loading" id="materials-loading" style="display:none;">
@@ -62,14 +64,14 @@
 
   function renderMaterialsPage(num) {
     materialsRendering = true;
-    materialsPdfDoc.getPage(num).then(function(page) {
+    materialsPdfDoc.getPage(num).then(function (page) {
       materialsScale = computeScaleForContainer(page);
       const viewport = page.getViewport({ scale: materialsScale });
       materialsCanvas.height = viewport.height;
       materialsCanvas.width = viewport.width;
       const renderContext = { canvasContext: materialsCtx, viewport };
       const renderTask = page.render(renderContext);
-      renderTask.promise.then(function() {
+      renderTask.promise.then(function () {
         materialsRendering = false;
         if (materialsPagePending !== null) {
           renderMaterialsPage(materialsPagePending);
@@ -123,13 +125,13 @@
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 
-    pdfjsLib.getDocument(pdfPath).promise.then(function(pdf) {
+    pdfjsLib.getDocument(pdfPath).promise.then(function (pdf) {
       materialsPdfDoc = pdf;
       totalTop.textContent = pdf.numPages;
       totalBottom.textContent = pdf.numPages;
       renderMaterialsPage(materialsPageNum);
       loadingDiv.style.display = 'none';
-    }).catch(function(err) {
+    }).catch(function (err) {
       console.error('PDF load error:', err);
       loadingDiv.innerHTML = '<p>Помилка завантаження документа</p>';
     });
@@ -140,26 +142,26 @@
     document.body.style.overflow = '';
   }
 
-  window.addEventListener('resize', function() {
+  window.addEventListener('resize', function () {
     if (modal.style.display === 'flex' && materialsPdfDoc) {
       queueRenderMaterials(materialsPageNum);
     }
   });
 
   // Делегирование кликов по ссылкам в Markdown-списках материалов
-    document.addEventListener('click', function (e) {
-      const a = e.target.closest('a[href]');
-      if (!a) return;
-      // только в контенте страницы
-      if (!a.closest('.content')) return;
-      // только на страницах материалов
-      if (!/\/(en\/)?materials\//.test(location.pathname)) return;
-      const href = a.getAttribute('href') || '';
-      if (!/\.pdf(\?|#|$)/i.test(href)) return;
-      e.preventDefault();
-      const title = (a.getAttribute('data-title') || a.textContent || 'Document').trim();
-      window.openMaterialsModal(href, title);
-    }, false);
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('a[href]');
+    if (!a) return;
+    // только в контенте страницы
+    if (!a.closest('.content')) return;
+    // только на страницах материалов
+    if (!/\/(en\/)?(materials|publications)\//.test(location.pathname)) return;
+    const href = a.getAttribute('href') || '';
+    if (!/\.pdf(\?|#|$)/i.test(href)) return;
+    e.preventDefault();
+    const title = (a.getAttribute('data-title') || a.textContent || 'Document').trim();
+    window.openMaterialsModal(href, title);
+  }, false);
   window.openMaterialsModal = openMaterialsModal;
   window.closeMaterialsModal = closeMaterialsModal;
-</script> 
+</script>
