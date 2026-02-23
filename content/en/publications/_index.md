@@ -1,6 +1,6 @@
 ---
 title: "2026"
-date: 2025-08-26
+date: 2026-02-23
 language: en
 pdf: /pdf/bluedelta.-fancy-bear.pdf
 ---
