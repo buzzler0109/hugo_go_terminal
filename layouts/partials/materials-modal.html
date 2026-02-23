@@ -1,14 +1,23 @@
-<div id="materials-modal" class="password-modal">
+{{ $lang := .Site.Language.Lang | default "ua" }}
+
+{{ $pageLabelPrefix := cond (eq $lang "en") "Page" "Сторінка" }}
+{{ $pageLabelOf := cond (eq $lang "en") "of" "з" }}
+{{ $loadingText := cond (eq $lang "en") "Loading document..." "Завантаження документа..." }}
+{{ $errorText := cond (eq $lang "en") "Error loading document" "Помилка завантаження документа" }}
+{{ $defaultTitle := cond (eq $lang "en") "Materials" "Матеріали" }}
+
+<div id="materials-modal" class="password-modal" data-error-text="{{ $errorText }}"
+  data-default-title="{{ $defaultTitle }}">
   <div class="password-modal-content">
     <div class="password-modal-header">
-      <h3 id="materials-modal-title">Матеріали</h3>
+      <h3 id="materials-modal-title">{{ $defaultTitle }}</h3>
       <button class="password-modal-close" onclick="closeMaterialsModal()">&times;</button>
     </div>
     <div class="password-modal-body">
       <div class="pdf-controls-top">
         <button id="materials-prev-top" class="main-btn" disabled>←</button>
-        <span id="materials-page-info-top">Сторінка <span id="materials-current-top">1</span> з <span
-            id="materials-total-top">1</span></span>
+        <span id="materials-page-info-top">{{ $pageLabelPrefix }} <span id="materials-current-top">1</span> {{
+          $pageLabelOf }} <span id="materials-total-top">1</span></span>
         <button id="materials-next-top" class="main-btn">→</button>
       </div>
       <div class="pdf-viewer-container">
@@ -16,13 +25,13 @@
       </div>
       <div class="pdf-controls-bottom">
         <button id="materials-prev-bottom" class="main-btn" disabled>←</button>
-        <span id="materials-page-info-bottom">Сторінка <span id="materials-current-bottom">1</span> з <span
-            id="materials-total-bottom">1</span></span>
+        <span id="materials-page-info-bottom">{{ $pageLabelPrefix }} <span id="materials-current-bottom">1</span> {{
+          $pageLabelOf }} <span id="materials-total-bottom">1</span></span>
         <button id="materials-next-bottom" class="main-btn">→</button>
       </div>
       <div class="pdf-loading" id="materials-loading" style="display:none;">
         <div class="loading-spinner"></div>
-        <p>Завантаження документа...</p>
+        <p>{{ $loadingText }}</p>
       </div>
     </div>
   </div>
@@ -53,6 +62,8 @@
   const loadingDiv = document.getElementById('materials-loading');
   const modal = document.getElementById('materials-modal');
   const titleEl = document.getElementById('materials-modal-title');
+  const materialsErrorText = modal.getAttribute('data-error-text');
+  const materialsDefaultTitle = modal.getAttribute('data-default-title');
 
   function computeScaleForContainer(page) {
     const container = document.querySelector('#materials-modal .pdf-viewer-container');
@@ -117,7 +128,7 @@
   nextBottom.addEventListener('click', onMaterialsNext);
 
   function openMaterialsModal(pdfPath, title) {
-    titleEl.textContent = title || 'Матеріали';
+    titleEl.textContent = title || materialsDefaultTitle;
     loadingDiv.style.display = 'block';
     materialsCanvas.width = 0; materialsCanvas.height = 0;
     materialsPageNum = 1;
@@ -133,7 +144,7 @@
       loadingDiv.style.display = 'none';
     }).catch(function (err) {
       console.error('PDF load error:', err);
-      loadingDiv.innerHTML = '<p>Помилка завантаження документа</p>';
+      loadingDiv.innerHTML = '<p>' + materialsErrorText + '</p>';
     });
   }
 

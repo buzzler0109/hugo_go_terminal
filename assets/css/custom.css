@@ -4,6 +4,12 @@ body {
     background-color: #161515;
 }
 
+/* Fix long URLs overflowing in blog posts */
+.post-content {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
 #particle-canvas {
     position: fixed;
     top: 0;

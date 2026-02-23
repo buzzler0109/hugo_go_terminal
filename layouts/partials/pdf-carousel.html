@@ -1,30 +1,39 @@
 {{ $pdfPath := .pdfPath | default "/pdf/document.pdf" }}
 {{ $title := .title | default "Document" }}
+{{ $lang := "ua" }}
+{{ with .Page }}{{ $lang = .Lang }}{{ end }}
 
-<div class="pdf-carousel-container">
+{{ $pageLabelPrefix := cond (eq $lang "en") "Page" "Сторінка" }}
+{{ $pageLabelOf := cond (eq $lang "en") "of" "з" }}
+{{ $loadingText := cond (eq $lang "en") "Loading document..." "Завантаження документа..." }}
+{{ $errorText := cond (eq $lang "en") "Error loading document" "Помилка завантаження документа" }}
+
+<div class="pdf-carousel-container" data-error-text="{{ $errorText }}">
     <div class="pdf-carousel-header">
         <h2>{{ $title }}</h2>
     </div>
-    
+
     <div class="pdf-controls-top">
         <button id="prev-page-top" class="main-btn" disabled>←</button>
-        <span id="page-info-top">Сторінка <span id="current-page-top">1</span> з <span id="total-pages-top">1</span></span>
+        <span id="page-info-top">{{ $pageLabelPrefix }} <span id="current-page-top">1</span> {{ $pageLabelOf }} <span
+                id="total-pages-top">1</span></span>
         <button id="next-page-top" class="main-btn">→</button>
     </div>
-    
+
     <div class="pdf-viewer-container">
         <canvas id="pdf-canvas"></canvas>
     </div>
-    
+
     <div class="pdf-controls-bottom">
         <button id="prev-page-bottom" class="main-btn" disabled>←</button>
-        <span id="page-info-bottom">Сторінка <span id="current-page-bottom">1</span> з <span id="total-pages-bottom">1</span></span>
+        <span id="page-info-bottom">{{ $pageLabelPrefix }} <span id="current-page-bottom">1</span> {{ $pageLabelOf }}
+            <span id="total-pages-bottom">1</span></span>
         <button id="next-page-bottom" class="main-btn">→</button>
     </div>
-    
+
     <div class="pdf-loading" id="pdf-loading">
         <div class="loading-spinner"></div>
-        <p>Завантаження документа...</p>
+        <p>{{ $loadingText }}</p>
     </div>
 </div>
 
@@ -32,7 +41,7 @@
 <script>
     // Настройка PDF.js
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-    
+
     let pdfDoc = null;
     let pageNum = 1;
     let pageRendering = false;
@@ -40,53 +49,55 @@
     const scale = 1.5;
     const canvas = document.getElementById('pdf-canvas');
     const ctx = canvas.getContext('2d');
-    
+
     // Элементы управления
     const prevBtnTop = document.getElementById('prev-page-top');
     const nextBtnTop = document.getElementById('next-page-top');
     const currentPageSpanTop = document.getElementById('current-page-top');
     const totalPagesSpanTop = document.getElementById('total-pages-top');
-    
+
     const prevBtnBottom = document.getElementById('prev-page-bottom');
     const nextBtnBottom = document.getElementById('next-page-bottom');
     const currentPageSpanBottom = document.getElementById('current-page-bottom');
     const totalPagesSpanBottom = document.getElementById('total-pages-bottom');
-    
+
     const loadingDiv = document.getElementById('pdf-loading');
-    
+    const carouselContainer = document.querySelector('.pdf-carousel-container');
+    const errorText = carouselContainer.getAttribute('data-error-text');
+
     // Загрузка PDF
-    pdfjsLib.getDocument('{{ $pdfPath }}').promise.then(function(pdf) {
+    pdfjsLib.getDocument('{{ $pdfPath }}').promise.then(function (pdf) {
         pdfDoc = pdf;
         totalPagesSpanTop.textContent = pdf.numPages;
         totalPagesSpanBottom.textContent = pdf.numPages;
-        
+
         // Рендеринг первой страницы
         renderPage(pageNum);
-        
+
         // Скрываем загрузку
         loadingDiv.style.display = 'none';
-    }).catch(function(error) {
+    }).catch(function (error) {
         console.error('Ошибка загрузки PDF:', error);
-        loadingDiv.innerHTML = '<p>Помилка завантаження документа</p>';
+        loadingDiv.innerHTML = '<p>' + errorText + '</p>';
     });
-    
+
     // Рендеринг страницы
     function renderPage(num) {
         pageRendering = true;
-        
-        pdfDoc.getPage(num).then(function(page) {
-            const viewport = page.getViewport({scale: scale});
+
+        pdfDoc.getPage(num).then(function (page) {
+            const viewport = page.getViewport({ scale: scale });
             canvas.height = viewport.height;
             canvas.width = viewport.width;
-            
+
             const renderContext = {
                 canvasContext: ctx,
                 viewport: viewport
             };
-            
+
             const renderTask = page.render(renderContext);
-            
-            renderTask.promise.then(function() {
+
+            renderTask.promise.then(function () {
                 pageRendering = false;
                 if (pageNumPending !== null) {
                     renderPage(pageNumPending);
@@ -94,12 +105,12 @@
                 }
             });
         });
-        
+
         currentPageSpanTop.textContent = num;
         currentPageSpanBottom.textContent = num;
         updateButtons();
     }
-    
+
     // Очередь рендеринга
     function queueRenderPage(num) {
         if (pageRendering) {
@@ -108,35 +119,35 @@
             renderPage(num);
         }
     }
-    
+
     // Обновление кнопок
     function updateButtons() {
         const isFirstPage = pageNum <= 1;
         const isLastPage = pageNum >= pdfDoc.numPages;
-        
+
         prevBtnTop.disabled = isFirstPage;
         nextBtnTop.disabled = isLastPage;
         prevBtnBottom.disabled = isFirstPage;
         nextBtnBottom.disabled = isLastPage;
     }
-    
+
     // Предыдущая страница
     function onPrevPage() {
         if (pageNum <= 1) return;
         pageNum--;
         queueRenderPage(pageNum);
     }
-    
+
     // Следующая страница
     function onNextPage() {
         if (pageNum >= pdfDoc.numPages) return;
         pageNum++;
         queueRenderPage(pageNum);
     }
-    
+
     // Обработчики событий
     prevBtnTop.addEventListener('click', onPrevPage);
     nextBtnTop.addEventListener('click', onNextPage);
     prevBtnBottom.addEventListener('click', onPrevPage);
     nextBtnBottom.addEventListener('click', onNextPage);
-</script> 
+</script>
