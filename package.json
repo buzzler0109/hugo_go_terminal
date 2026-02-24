@@ -1,0 +1,7 @@
+{
+    "name": "hugo_go_terminal",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "hugo"
+    }
+}
