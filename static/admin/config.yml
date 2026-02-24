@@ -333,6 +333,49 @@ collections:
           widget: "select",
           options: ["en"],
         }
+
+  - name: "ua_vacancies"
+    label: "Українські вакансії"
+    folder: "content/ua/vacancies"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - {
+          label: "Дата",
+          name: "date",
+          widget: "datetime",
+          default: "{{now}}",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+        }
+      - { label: "Опис", name: "description", widget: "string" }
+      - { label: "Тіло", name: "body", widget: "markdown" }
+      - { label: "Мова", name: "language", widget: "select", options: ["ua"] }
+
+  - name: "en_vacancies"
+    label: "English Vacancies"
+    folder: "content/en/vacancies"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          default: "{{now}}",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+        }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Language",
+          name: "language",
+          widget: "select",
+          options: ["en"],
+        }
   # - name: "en_materials"
   #   label: "English Materials"
   #   folder: "content/en/materials"
