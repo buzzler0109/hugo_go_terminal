@@ -1,5 +1,5 @@
 ---
-title: Volunteer — AI Automation / Full‑Stack Engineer
+title: Volunteer AI Automation / Full‑Stack Engineer
 date: 2026-02-24
 description: We are looking for an engineer who will help us build and maintain
   technical solutions for automating investigations, integrating AI agents, and
