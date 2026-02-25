@@ -15,4 +15,6 @@ This is a strong example of OSINT work that transforms fragmented information in
 
 
 
+<https://t.me/OsintVarta/603> 
+
 <https://map.osint-varta.com/>
