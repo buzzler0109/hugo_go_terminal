@@ -51,4 +51,4 @@ We are looking for an independent specialist who is ready to take ownership of t
 
 We work with volunteers from all over Ukraine and worldwide.
 
-Join us and become part of a team that makes real change!
+[Join us and become part of a team that makes real change!](https://docs.google.com/forms/d/e/1FAIpQLScpwF4m7B27AkXUEeiMsuZhR9Ls6s6A5Ex1MVKz8nc8kA4m_g/viewform?usp=send_form)
