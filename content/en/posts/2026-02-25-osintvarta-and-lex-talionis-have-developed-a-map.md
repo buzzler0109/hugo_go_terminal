@@ -1,6 +1,6 @@
 ---
 title: "OsintVarta and Lex Talionis have developed a map "
-date: 2026-02-26
+date: 2026-02-25
 language: en
 ---
 6,000 defense-industrial complex enterprises of the russian federation are now available on an interactive map.
